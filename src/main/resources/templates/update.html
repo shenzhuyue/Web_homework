@@ -7,41 +7,62 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
+
+        input{
+            height: 30px;
+            width: 14em;
+            font-size: 20px;
+        }
         body{
             background-image:url('background.jpg');
             background-repeat:no-repeat;
-            background-repeat:no-repeat;
+        }
+        .column1 {
+            visibility:hidden;
+            float: left;
+            width: 35%;
+        }
+        .column2 {
+            float: left;
+            width: 30%;
         }
     </style>
 </head>
 <body>
-<form name="myform" onsubmit="return check()" th:action = "@{'/update/post/'+${current_id}}" method="post" th:object="${user}">
-    <table class="table table-hover table-bordered">
-        <tr>
-            <th>姓名</th>
-            <td><input type="text" name="" class="form-control" id="name" th:field="*{name}"/></td>
-        </tr>
-        <tr>
-            <th>电话</th>
-            <td><input type="text" name="" class="form-control" id="phone" onblur="checkNumber()" th:field="*{phone}"/></td>
-        </tr>
-        <tr>
-            <th>邮箱</th>
-            <td><input type="text" name="" class="form-control" id="email" onblur="checkEmail()" th:field="*{email}"/></td>
-        </tr>
-        <tr>
-            <th>住址</th>
-            <td><input type="text" name="" class="form-control" id="home" th:field="*{address}"/></td>
-        </tr>
-        <tr>
-            <th>QQ号</th>
-            <td><input type="text" name="" class="form-control" id="QQ" onblur="checkQQ()" th:field="*{qq}"/></td>
-        </tr>
-    </table>
-    <center>
-        <input type="submit" value="提交" class="btn btn-info">
-    </center>
-</form>
+
+<div class="column1">隐藏</div>
+<div class="column2">
+    <form name="myform" onsubmit="return check()" th:action = "@{'/update/post/'+${current_id}}" method="post" th:object="${user}">
+        <table class="table table-hover table-bordered">
+            <tr>
+                <th>姓名</th>
+                <td><input type="text" name="" class="form-control" id="name" th:field="*{name}"/></td>
+            </tr>
+            <tr>
+                <th>电话</th>
+                <td><input type="text" name="" class="form-control" id="phone" onblur="checkNumber()" th:field="*{phone}"/></td>
+            </tr>
+            <tr>
+                <th>邮箱</th>
+                <td><input type="text" name="" class="form-control" id="email" onblur="checkEmail()" th:field="*{email}"/></td>
+            </tr>
+            <tr>
+                <th>住址</th>
+                <td><input type="text" name="" class="form-control" id="home" th:field="*{address}"/></td>
+            </tr>
+            <tr>
+                <th>QQ号</th>
+                <td><input type="text" name="" class="form-control" id="QQ" onblur="checkQQ()" th:field="*{qq}"/></td>
+            </tr>
+        </table>
+        <center>
+            <input type="submit" value="提交" class="btn btn-info">
+        </center>
+    </form>
+</div>
+
+<div class="column1">隐藏</div>
+
 
 <script type="text/javascript">
     function checkNumber(){
